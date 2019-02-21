@@ -28,4 +28,6 @@ profiles:
       namespace: jx
       dockerConfig:
         secretName: jenkins-docker-cfg
+      cache:
+        repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/garethjevans/kaniko-springboot/cache
 

@@ -1,0 +1,18 @@
+schemaVersion: '2.0.0' # Make sure to test the latest schema version
+commandTests:
+- name: 'java'
+  command: 'java'
+  args: ['-version']
+  excludedError: ['.*FAIL.*']
+  expectedError: ['.*openjdk version \"1.8.0.*'] 
+- name: 'mvn'
+  command: 'which'
+  args: ['mvn']
+  exitCode: 1
+fileExistenceTests:
+- name: '/opt/app.jar'
+  path: '/opt/app.jar'
+  shouldExist: true
+metadataTest:
+  exposedPorts: ["8080"]
+  workdir: "/opt"

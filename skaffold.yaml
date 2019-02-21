@@ -30,4 +30,10 @@ profiles:
         secretName: jenkins-docker-cfg
       cache:
         repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/garethjevans/kaniko-springboot/cache
-
+      resources:
+        requests:
+          cpu: 1
+          memory: 1G
+        limits:
+          cpu: 2
+          memory: 2G

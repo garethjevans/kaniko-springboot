@@ -28,5 +28,4 @@ profiles:
       namespace: jx
       dockerConfig:
         secretName: jenkins-docker-cfg
-      image: rawlingsj/executor:dev21
 

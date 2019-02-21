@@ -4,7 +4,7 @@ pipeline {
     ORG = 'garethjevans'
     APP_NAME = 'kaniko-springboot'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
-    DOCKER_REGISTRY = 'jenkins-x-docker-registry.jx.svc.cluster.local:5000'
+    DOCKER_REGISTRY_FULL = 'jenkins-x-docker-registry.jx.svc.cluster.local:5000'
   }
   stages {
     stage('CI Build and push snapshot') {

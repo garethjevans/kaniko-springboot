@@ -7,7 +7,7 @@ build:
     docker: {}
   tagPolicy:
     envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/{{.IMAGE_NAME}}:{{.VERSION}}'
+      template: '{{.DOCKER_REGISTRY_FULL}}/{{.IMAGE_NAME}}:{{.VERSION}}'
 deploy:
   kubectl: {}
 test:

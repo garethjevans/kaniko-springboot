@@ -20,6 +20,11 @@ pipeline {
         sh "mvn versions:set -DnewVersion=$PREVIEW_VERSION"
         sh "skaffold version"
         sh "export VERSION=$PREVIEW_VERSION && skaffold build -p kaniko -f skaffold.yaml --skip-tests"
+
+        // manually pull the docker image after skaffold has built it
+		sh "docker pull $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
+		sh "container-structure-test test --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION --config test/container-test.yaml"
+
         sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
         dir('charts/preview') {
           sh "make preview"
